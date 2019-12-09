@@ -10,7 +10,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {InterceptorService} from "./services/interceptor.service";
 import {GithubService} from "./services/github.service";
 import { CardComponent } from './card/card.component';
-import {BASE_URL_TOKEN, BASE_URL} from "./config";
 
 @NgModule({
   declarations: [
