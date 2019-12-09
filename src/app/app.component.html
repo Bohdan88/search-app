@@ -1,0 +1,51 @@
+<mat-spinner
+  class="spinner-custom"
+  *ngIf="spinnerOnInit"></mat-spinner>
+<div *ngIf="!spinnerOnInit">
+  <app-browse (onInput)="search($event)"></app-browse>
+  <mat-grid-list
+    cols="4"
+    [rowHeight]="225"
+    *ngIf="items; else loader"
+
+  >
+    <mat-grid-tile
+      *ngFor="let item of items">
+      <app-card [item]="item"></app-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<mat-card
+  *ngIf="madeSearch && items.length === 0 && searchedItem !== '' && !found"
+  class="card-no-data"
+>
+  <mat-card-content>
+    <div>
+    Sorry we couldn`t find any results matching
+    <b>{{searchedItem}}</b>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<div
+  *ngIf="madeSearch && items.length === 0 && found"
+  class="spinner-custom"
+>
+  <mat-spinner></mat-spinner>
+</div>
+
+<mat-card
+  *ngIf="madeSearch && emptyValue"
+  class="card-no-data"
+>
+  <mat-card-content>
+    <div class="content-error">
+      <h3 class="header-error text-align-center">Error</h3>
+      <p class="text-align-center">You`ve sent an empty value.</p>
+      <p class="text-align-center">Please type something.</p>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<!--<mat-spinner></mat-spinner>-->

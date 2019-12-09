@@ -1,0 +1,29 @@
+<mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile
+    *ngFor="let grid of grids"
+    [colspan]="grid.cols"
+    [rowspan]="grid.rows">
+
+    <form class = "form-container">
+    <mat-form-field
+      class="form-full-width"
+    >
+      <input
+        matInput
+        placeholder="Search Repository"
+        #input
+        class="input-search"
+      />
+    </mat-form-field>
+    <button
+      type="button"
+      mat-button
+      color="primary"
+      class="button-search"
+      (click)="onSearch($event)"
+    >
+      Search
+    </button>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>

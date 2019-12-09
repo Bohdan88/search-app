@@ -1,0 +1,24 @@
+<mat-card
+  *ngIf="item"
+  class="card-custom"
+>
+  <mat-card-header>
+    <mat-card-title class="card-title">{{item.name}}</mat-card-title>
+  </mat-card-header>
+  <div class="container-img">
+  <img
+    mat-card-image
+    src={{item.owner.avatar_url}}
+    class="img-card"
+  >
+  </div>
+  <mat-card-content
+    class="card-content"
+  >
+    <ul class="content-list">
+      <li>Size: {{item.size}}</li>
+      <li>Watchers: {{item.watchers}}</li>
+      <li> <a [href]="item.html_url">Repository</a></li>
+    </ul>
+  </mat-card-content>
+</mat-card>
